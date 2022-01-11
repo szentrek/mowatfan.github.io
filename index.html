@@ -1,93 +1,95 @@
 <!DOCTYPE html>
 <!-- This is a half-hearted (yet full-on kitsch) experiment with a JavaScript countdown timer.-->
 <html>
-
-<head>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <style> 
-        body {
-            background-image: url("https://pixabay.com/get/gec90608e686f1ba512b2e6aedcd026e891382ff77bef19c9bbc1b6f5b2e6d1ebe28f89e9629e33d678092fc6c36fdef5.jpg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .center {
-            text-align: center;
-        }
-        .padded {
-            text-align: left;
-            padding-top: 50px;
-            padding-right: 300px;
-            padding-bottom: 50px;
-            padding-left: 300px;
-        }
-        h1 {
-            padding-top: 10px;
-          }
-            div {
-            padding-top:50px;
-          }
-        .downdowndown {
-            text-align: center;
-            font-size: 60px;
-            margin-top: 0px;
-            margin-bottom: 100px;
-        }
+  <head>
+    <style>
+      body {
+        background-image: url("wolf-1351940.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .center {
+        text-align: center;
+      }
+      .padded {
+        text-align: left;
+        padding-top: 50px;
+        padding-right: 300px;
+        padding-bottom: 50px;
+        padding-left: 300px;
+      }
+      h1 {
+        padding-top: 10px;
+      }
+      div {
+        padding-top: 50px;
+      }
+      .downdowndown {
+        text-align: center;
+        font-size: 60px;
+        margin-top: 0px;
+        margin-bottom: 100px;
+      }
     </style>
 
     <div id="header" class="center">
-        <h1>An imaginary relaunch of Farley Mowat's <i>Never Cry Wolf</i></h1>
-        <h2>60th anniversary</h2>
-        <h3>1963—2023</h3>
+      <h1>An imaginary relaunch of Farley Mowat's <i>Never Cry Wolf</i></h1>
+      <h2>60th anniversary</h2>
+      <h3>1963—2023</h3>
     </div>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <div id="cover" class="center">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Never_Cry_Wolf_%28book%29.jpg/220px-Never_Cry_Wolf_%28book%29.jpg" alt="Cover of first edition of Mowat's Never Cry Wolf">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Never_Cry_Wolf_%28book%29.jpg/220px-Never_Cry_Wolf_%28book%29.jpg"
+        alt="Cover of first edition of Mowat's Never Cry Wolf"
+      />
     </div>
 
     <div id="description" class="padded">
-        <p>Never Cry Wolf is an account of the author's experience observing wolves in subarctic Canada by Farley Mowat, first published in 1963 by McClelland and Stewart. It was adapted into a film of the same name in 1983. It has been credited for dramatically changing the public image of the wolf to a more positive one.</p>
+      <p>
+        Never Cry Wolf is an account of the author's experience observing wolves
+        in subarctic Canada by Farley Mowat, first published in 1963 by
+        McClelland and Stewart. It was adapted into a film of the same name in
+        1983. It has been credited for dramatically changing the public image of
+        the wolf to a more positive one.
+      </p>
     </div>
 
     <p id="demo" class="downdowndown">
-    <script>
+      <script>
         // Set the date we're counting down to
         var countDownDate = new Date("Jan 1, 2023 00:00:01").getTime();
 
         // Update the count down every 1 second
-        var x = setInterval(function() {
+        var x = setInterval(function () {
+          // Get today's date and time
+          var now = new Date().getTime();
 
-        // Get today's date and time
-        var now = new Date().getTime();
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
 
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          // Display the result in the element with id="demo"
+          document.getElementById("demo").innerHTML =
+            days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
-        // Display the result in the element with id="demo"
-        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
-
-        // If the count down is finished, write some text
-        if (distance < 0) {
-           clearInterval(x);
-        document.getElementById("demo").innerHTML = "The time has come!";
-        }
+          // If the count down is finished, write some text
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "The time has come!";
+          }
         }, 1000);
-    </script>    
+      </script>
     </p>
-
-</body>
-
+  </body>
 </html>
