@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <!-- This is a half-hearted (yet full-on kitsch) experiment with a JavaScript countdown timer.-->
 <html>
@@ -99,6 +100,8 @@
   </body>
 </html>
 =======
+=======
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <!-- This is a half-hearted (yet full-on kitsch) experiment with a JavaScript countdown timer.-->
 <html>
@@ -109,7 +112,8 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="jquery.countdown.min.js"></script>
     <style>
       body {
         background-image: url("wolf-1351940.jpg");
@@ -136,6 +140,34 @@
         margin-top: 0px;
         margin-bottom: 100px;
       }
+      ul#example {
+        list-style: none;
+        margin: 50px 0;
+        padding: 0;
+        display: block;
+        text-align: center;
+      }
+
+      ul#example li {
+        display: inline-block;
+      }
+
+      ul#example li span {
+        font-size: 80px;
+        font-weight: 300;
+        line-height: 80px;
+      }
+
+      ul#example li.seperator {
+        font-size: 80px;
+        line-height: 70px;
+        vertical-align: top;
+      }
+
+      ul#example li p {
+        color: #a7abb1;
+        font-size: 25px;
+      }
     </style>
 
     <div id="header" class="center">
@@ -154,48 +186,43 @@
     </div>
 
     <div class="container-lg" id="description">
-      <p>
-        Never Cry Wolf is an account of the author's experience observing wolves
-        in subarctic Canada by Farley Mowat, first published in 1963 by
-        McClelland and Stewart. It was adapted into a film of the same name in
-        1983. It has been credited for dramatically changing the public image of
-        the wolf to a more positive one.
-      </p>
+      Never Cry Wolf is an account of the author's experience observing wolves
+      in subarctic Canada by Farley Mowat, first published in 1963 by McClelland
+      and Stewart. It was adapted into a film of the same name in 1983. It has
+      been credited for dramatically changing the public image of the wolf to a
+      more positive one.
     </div>
+
+    <ul id="example">
+      <li>
+        <span class="days">00</span>
+        <p class="days_text">days</p>
+      </li>
+      <li class="seperator">:</li>
+      <li>
+        <span class="hours">00</span>
+        <p class="hours_text">hours</p>
+      </li>
+      <li class="seperator">:</li>
+      <li>
+        <span class="minutes">00</span>
+        <p class="minutes_text">minutes</p>
+      </li>
+      <li class="seperator">:</li>
+      <li>
+        <span class="seconds">00</span>
+        <p class="seconds_text">seconds</p>
+      </li>
+    </ul>
 
     <p id="demo" class="downdowndown">
       <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("Jan 1, 2023 00:00:01").getTime();
-
-        // Update the count down every 1 second
-        var x = setInterval(function () {
-          // Get today's date and time
-          var now = new Date().getTime();
-
-          // Find the distance between now and the count down date
-          var distance = countDownDate - now;
-
-          // Time calculations for days, hours, minutes and seconds
-          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          var hours = Math.floor(
-            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-          );
-          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-          // Display the result in the element with id="demo"
-          document.getElementById("demo").innerHTML =
-            days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-          // If the count down is finished, write some text
-          if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("demo").innerHTML = "The time has come!";
-          }
-        }, 1000);
+        $('#example').countdown({ date: '01/01/2023 00:00:01' }, function () {
+             alert('The time has come!'); }); // Target date date: null, // time zone
+             offset: null, // Countdown text day: 'Day', days: 'Days', hour: 'Hour',
+             hours: 'Hours', minute: 'Minute', minutes: 'Minutes', second: 'Second',
+             seconds: 'Seconds'
       </script>
     </p>
   </body>
 </html>
->>>>>>> Stashed changes
